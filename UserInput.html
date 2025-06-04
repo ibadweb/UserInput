@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserInput</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table {border-spacing: 10px; border-collapse: separate;}
+        thead {background: teal; color: white; font-family: verdana; font-size: 12px;}
+        tbody {background: lightgray; color: black; font-family: calibri; font-size: 13px;}
+        tfoot {background: black; color: white; font-family: corbel; font-size: 12px;}
+        th,td {padding: 5px;}
+        table caption {font-family: candara; font-weight: bold;}
+        .put{transition: all 2s linear;    width: 350px; height: 400px; background-color: rgb(197, 179, 79);border: 2px solid blue; 
+            border-radius: 15px;
+            margin-left: 500px; margin-top: 50px;
+            display:flex;justify-content: center; align-items: center;
+            flex-direction: column; 
+        }
+        .put:hover{ transform: scale(1.03);
+            background-color:  rgb(99, 165, 97); color:blue;
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+    <section class="put">
+        <article class="input">
+          
+            <label>USER ID: </label><input type="text" id="txtid" /><br />
+            <label>USER NAME: </label><input type="text" id="txtname" /><br />
+            <label>USER AGE: </label><input type="text" id="txtage" /><br />
+            <label>USER CITY: </label><input type="text" id="txtcity" /><br />
+            <button onclick="dosave()">Add Record</button>
+        </article>
+        <article>
+            <table>
+                <caption><h2> ITSAWK STUDENTS RECORD</h2></caption>
+                <thead>
+                    <tr>
+                        <th>STD ID</th><th>STD NAME</th><th>STD AGE</th><th>STD CITY</th>
+                    </tr>
+                </thead>
+                <tbody id="tbdy">
+                           
+                </tbody>
+                <tfoot class="tft" id="tft" >
+                    <tr>
+                        <th colspan="3">Total records: </th><th><span id="tft">0</span></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+    </section>
+    <aside>
+
+    </aside>
+    <footer>
+
+    </footer>
+    <script>
+            function dosave()
+        {
+            var userid = document.getElementById("txtid").value;
+            var username = document.getElementById("txtname").value;
+            var userage = document.getElementById("txtage").value;
+            var usercity = document.getElementById("txtcity").value;
+
+            var tbody = document.getElementById("tbdy");
+
+            var row = document.createElement("tr");
+
+            var col1 = document.createElement("td");
+            var col2 = document.createElement("td");
+            var col3 = document.createElement("td");
+            var col4 = document.createElement("td");
+
+            col1.innerText = userid;
+            col2.innerText = username;
+            col3.innerText = userage;
+            col4.innerText = usercity;
+
+            row.appendChild(col1);
+            row.appendChild(col2);
+            row.appendChild(col3);
+            row.appendChild(col4);
+
+            tbody.appendChild(row);
+
+            document.getElementById("txtid").value = '';
+            document.getElementById("txtname").value = '';
+            document.getElementById("txtage").value = '';
+            document.getElementById("txtcity").value = '';
+
+            alert("permission")
+
+            var count = tbdy.rows.length;
+            document.getElementById("tft").innerText = count;
+            count++;
+
+
+            
+        }
+    </script>
+</body>
+</html>
